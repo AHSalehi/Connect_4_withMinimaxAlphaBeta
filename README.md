@@ -8,5 +8,5 @@ Bot uses the Minimax algorithm entirely and also added alpha_beta pruning method
 I want to use HTML+CSS and FastAPI for its backend.
 
 # Know me:)
-My email : salehamir708@gmail.com
+My email : salehamir708@gmail.com <br>
 Amirhossein Salehi, CE@NIT
