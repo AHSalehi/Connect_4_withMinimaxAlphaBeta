@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect 4 — 10x10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="chrome">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Three-player | 10×10 board</p>
+        <h1>Connect 4 Control Room</h1>
+      </div>
+      <div class="badge">P1 + P2 + Bot</div>
+    </header>
+    <main class="canvas">
+      <section class="sidebar">
+        <div class="card players-panel">
+          <div class="card-head">
+            <p class="eyebrow">Players</p>
+            <h2>Names & colors</h2>
+          </div>
+          <div id="player-list" class="player-list"></div>
+        </div>
+
+        <div class="card bot-panel">
+          <div class="card-head">
+            <p class="eyebrow">Robot</p>
+            <h2>Minimax timings</h2>
+          </div>
+          <div class="bot-metrics">
+            <div class="metric">
+              <p>Decision time</p>
+              <strong id="bot-decision">—</strong>
+            </div>
+            <div class="metric">
+              <p>Runtime</p>
+              <strong id="bot-runtime">—</strong>
+            </div>
+          </div>
+          <p class="metric-note">Figures update each time the bot claims a cell.</p>
+        </div>
+
+        <div class="card log-panel">
+          <div class="card-head">
+            <p class="eyebrow">History</p>
+            <h2>Trace of moves</h2>
+          </div>
+          <ul id="move-log" class="move-log" aria-live="polite"></ul>
+        </div>
+
+        <div class="card turn-panel">
+          <div class="card-head">
+            <p class="eyebrow">Turner</p>
+            <h2>Dice roll</h2>
+          </div>
+          <div class="turn-box">
+            <div id="dice-indicator" class="dice">Roll to start</div>
+            <div class="turn-meta">
+              <span id="turn-countdown">Waiting…</span>
+              <button id="roll-btn" class="ghost">Roll now</button>
+            </div>
+            <p class="metric-note">A spin kicks off ~2s after each move. Manual rolls are allowed.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="board-shell">
+        <div class="board-head">
+          <div>
+            <p class="eyebrow">Board</p>
+            <h2>10×10 grid of circles</h2>
+          </div>
+          <div id="status-text" class="status-chip">Ready. Roll to pick the opening turn.</div>
+        </div>
+
+        <div id="board-frame" class="board-frame">
+          <div id="board-grid" class="board-grid" role="grid" aria-label="Connect 4 board"></div>
+        </div>
+        <div class="board-foot">
+          <p>Tip: click an empty cell during your turn. Filled cells will refuse new moves.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
