@@ -35,6 +35,21 @@ PLAYERS: List[str] = ["P1", "P2", "BOT"]
 
 app = FastAPI(title="Connect 4 (10x10) Backend", version="0.1.0")
 
+# Allow frontend served from file:// or other hosts during development.
+try:
+  from fastapi.middleware.cors import CORSMiddleware
+except ImportError:
+  CORSMiddleware = None  # type: ignore
+
+if CORSMiddleware:
+  app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+  )
+
 
 # ----------------------------
 # Pydantic models
