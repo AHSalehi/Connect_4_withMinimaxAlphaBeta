@@ -1,10 +1,4 @@
-"""
-Turn roller with uniform probability and a fatigue rule:
 
-If any player acts in two consecutive turns, they are removed from the next roll.
-After sitting out a single roll, they rejoin the pool. Useful for FastAPI
-endpoints that need deterministic state transitions.
-"""
 from __future__ import annotations
 
 import random
